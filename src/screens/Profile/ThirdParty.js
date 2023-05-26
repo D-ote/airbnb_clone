@@ -40,7 +40,11 @@ const ThirdParty = ({ navigation }) => {
           Third-party tools
         </Text>
       </View>
-      <ScrollView style={{ marginTop: HEIGHT * 0.08 }}>
+      <ScrollView
+        style={{ marginTop: HEIGHT * 0.08 }}
+        contentContainerStyle={{ paddingBottom: 100 }}
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={{ padding: 16, lineHeight: 20 }}>
           Thank you for using Airbnb. The information that's shared with us
           helps us to provide a great experience for you. Out{" "}
@@ -144,24 +148,15 @@ const ThirdParty = ({ navigation }) => {
 export default ThirdParty;
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  // container: { flex: 1 },
   headerStyle: {
     flexDirection: "row",
     alignItems: "center",
     top: HEIGHT * 0.06,
     borderBottomColor: "#E4DCCF",
     borderBottomWidth: 1,
-    paddingVertical: 10,
+    // paddingVertical: 10,
     padding: 16,
-  },
-  bottomButton: {
-    backgroundColor: "#212A3E",
-    borderRadius: 8,
-    padding: 10,
-  },
-  buttonTile: {
-    justifyContent: "center",
-    alignItems: "center",
   },
   lineShadow: {
     backgroundColor: "#212A3E",
@@ -170,7 +165,7 @@ const styles = StyleSheet.create({
     width: "80%",
     padding: 4,
     borderRadius: 8,
-    alignItems: "center",
     alignSelf: "center",
   },
+  buttonBackground: {},
 });

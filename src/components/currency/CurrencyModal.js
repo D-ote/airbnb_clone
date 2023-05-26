@@ -14,6 +14,12 @@ import { HEIGHT } from "../../utils/Constants";
 const CurrencyModal = ({ isVisible, setIsVisible, setSelectedCurency }) => {
   const [selected, setSelected] = useState(0);
 
+  const pickCurrency = (item) => {
+    setSelected(item?.id),
+      setSelectedCurency(item?.short + " " + `(${item?.symbol})`),
+      setTimeout(() => setIsVisible(false), 500);
+  };
+
   return (
     <Modal animationType="slide" transparent={false} visible={isVisible}>
       <View style={styles.currencyModal}>
@@ -39,11 +45,7 @@ const CurrencyModal = ({ isVisible, setIsVisible, setSelectedCurency }) => {
                 borderBottomWidth: 1,
                 paddingVertical: 14,
               }}
-              onPress={() => {
-                setSelected(item.id),
-                  setSelectedCurency(item.short + " " + `(${item.symbol})`),
-                  setIsVisible(false);
-              }}
+              onPress={() => pickCurrency(item)}
             >
               <Text>
                 {item.currency} - {item.symbol}

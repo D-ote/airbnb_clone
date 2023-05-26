@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.75,
-    shadowRadius: 5,
+    shadowRadius: 2,
     elevation: 22,
   },
 });

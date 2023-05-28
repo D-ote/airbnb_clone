@@ -6,20 +6,9 @@ import {
   Text,
   View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import React, { useState } from "react";
-import { HEIGHT } from "../../utils/Constants";
-import { CurrencyList } from "../../utils/Lists";
+import React from "react";
 
-const CurrencyModal = ({ isVisible, setIsVisible, setSelectedCurency }) => {
-  const [selected, setSelected] = useState(0);
-
-  const pickCurrency = (item) => {
-    setSelected(item?.id),
-      setSelectedCurency(item?.short + " " + `(${item?.symbol})`),
-      setTimeout(() => setIsVisible(false), 500);
-  };
-
+const CountryModal = () => {
   return (
     <Modal animationType="slide" transparent={false} visible={isVisible}>
       <View style={styles.currencyModal}>
@@ -28,7 +17,7 @@ const CurrencyModal = ({ isVisible, setIsVisible, setSelectedCurency }) => {
             <Ionicons name="close" size={24} color="black" />
           </Pressable>
           <Text style={{ fontWeight: 600, marginLeft: 100 }}>
-            Choose a currency
+            Country/Region
           </Text>
         </View>
       </View>
@@ -64,7 +53,7 @@ const CurrencyModal = ({ isVisible, setIsVisible, setSelectedCurency }) => {
   );
 };
 
-export default CurrencyModal;
+export default CountryModal;
 
 const styles = StyleSheet.create({
   modalHeader: {

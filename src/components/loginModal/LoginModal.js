@@ -71,6 +71,7 @@ const LoginModal = ({ isVisible, setIsVisible }) => {
                   borderBottomWidth: 0.8,
                   padding: 10,
                 }}
+                onPress={setIsVisible}
               >
                 <View>
                   <Text style={{ fontSize: 12, fontWeight: 200 }}>

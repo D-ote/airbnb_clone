@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { HEIGHT } from "../../utils/Constants";
 import {
   Ionicons,
@@ -15,6 +15,7 @@ import {
   AntDesign,
   MaterialIcons,
 } from "@expo/vector-icons";
+import LoginModal from "../../components/loginModal/LoginModal";
 
 const Content = [
   {
@@ -44,6 +45,8 @@ const Content = [
 ];
 
 const Index = ({ navigation }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   const pic = "../../../assets/airbnb.png";
   return (
     <View style={styles.container}>
@@ -52,11 +55,15 @@ const Index = ({ navigation }) => {
         Log in to start planning your next trip.
       </Text>
       <View style={styles.btn}>
-        <Button title="Log in" color={"#fff"} onPress={() => {}} />
+        <Button
+          title="Log in"
+          color={"#fff"}
+          onPress={() => setIsVisible(!isVisible)}
+        />
       </View>
       <View marginTop={24} flexDirection="row">
         <Text>Don't have an account?</Text>
-        <Pressable>
+        <Pressable onPress={() => setIsVisible(!isVisible)}>
           <Text style={styles.textStyle}> Sign up</Text>
         </Pressable>
       </View>
@@ -75,29 +82,29 @@ const Index = ({ navigation }) => {
         <FlatList
           data={Content}
           renderItem={({ item }) => (
-            <View style={styles.rowStyle}>
-              <Pressable
-                style={({ pressed }) => [
-                  { backgroundColor: pressed ? "#E8E8E8" : "#f0f0f0" },
-                  styles.content,
-                ]}
-                onPress={() => navigation.navigate(item.onPress)}
-              >
-                <View style={styles.first}>
-                  {item.icon}
-                  <Text
-                    style={{ fontSize: 16, marginLeft: 10, fontWeight: 300 }}
-                  >
-                    {item.name}
-                  </Text>
-                </View>
-                <Feather name="chevron-right" size={24} color="black" />
-              </Pressable>
-            </View>
+            <Pressable
+              style={({ pressed }) => [
+                { backgroundColor: pressed ? "#E8E8E8" : "#f0f0f0" },
+                styles.content,
+              ]}
+              onPress={() => navigation.navigate(item.onPress)}
+            >
+              <View style={styles.first}>
+                {item.icon}
+                <Text style={{ fontSize: 16, marginLeft: 10, fontWeight: 300 }}>
+                  {item.name}
+                </Text>
+              </View>
+              <Feather name="chevron-right" size={24} color="black" />
+            </Pressable>
           )}
           keyExtractor={(item) => item.id}
         />
       </View>
+      <LoginModal
+        isVisible={isVisible}
+        setIsVisible={() => setIsVisible(!isVisible)}
+      />
     </View>
   );
 };

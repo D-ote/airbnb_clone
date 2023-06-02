@@ -13,36 +13,29 @@ import { Ionicons, Feather } from "@expo/vector-icons";
 import { HEIGHT } from "../../utils/Constants";
 import SearchModal from "../../components/searchModal/SearchModal";
 import TopTabs from "../../components/toptabs/TopTabs";
+import LoginModal from "../../components/loginModal/LoginModal";
 
 const ExploreList = [
   {
     id: 1,
     headerText: "Our community policies",
     bodyText: "How we build a foundation of trust",
+    onPress: "PoliciesStack",
   },
   {
     id: 2,
     headerText: "Safety tips and guidlines",
     bodyText: "Resources to help travellers stay safe.",
+    onPress: "SafetyTipsStack",
   },
 ];
 
 const Help = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <>
-      <Pressable
-        onPress={() => navigation.goBack()}
-        style={{
-          paddingTop: HEIGHT * 0.06,
-          paddingBottom: 20,
-          paddingHorizontal: 16,
-          backgroundColor: "#f8f8f8",
-        }}
-      >
-        <Ionicons name={"md-chevron-back-sharp"} size={22} />
-      </Pressable>
+    <View style={StyleSheet.absoluteFill}>
       <ScrollView>
         <View style={{ marginTop: HEIGHT * 0.04, paddingHorizontal: 16 }}>
           <Text style={{ fontWeight: "bold", fontSize: 26 }}>
@@ -72,7 +65,10 @@ const Help = ({ navigation }) => {
           <FlatList
             data={ExploreList}
             renderItem={({ item }) => (
-              <View style={styles.exploreStyle}>
+              <Pressable
+                style={styles.exploreStyle}
+                onPress={() => navigation.navigate(item.onPress)}
+              >
                 <View style={styles.imgContainer}>
                   <Image
                     source={require("../../../assets/tourists.jpeg")}
@@ -89,7 +85,7 @@ const Help = ({ navigation }) => {
                     {item.bodyText}
                   </Text>
                 </View>
-              </View>
+              </Pressable>
             )}
             keyExtractor={(item) => item.id}
           />
@@ -102,7 +98,11 @@ const Help = ({ navigation }) => {
             </Text>
           </View>
           <View style={styles.button}>
-            <Button title="Contact us" color={"#000"} />
+            <Button
+              title="Contact us"
+              color={"#000"}
+              onPress={() => setIsLoggedIn(!isLoggedIn)}
+            />
           </View>
         </View>
       </ScrollView>
@@ -111,7 +111,11 @@ const Help = ({ navigation }) => {
         isVisible={isVisible}
         setIsVisible={() => setIsVisible(!isVisible)}
       />
-    </>
+      <LoginModal
+        isVisible={isLoggedIn}
+        setIsVisible={() => setIsLoggedIn(!isLoggedIn)}
+      />
+    </View>
   );
 };
 
@@ -154,7 +158,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignSelf: "center",
     borderRadius: 8,
-    marginTop: 40,
+    marginVertical: 40,
     padding: 8,
   },
 });

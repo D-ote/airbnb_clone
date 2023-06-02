@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ToggleBtn from "../components/toggleBtn/ToggleBtn";
 import {
   Ionicons,
@@ -108,9 +107,9 @@ export const Content = {
         />
       ),
       name: "Getting started through AirCover",
-      onPress: "ThirdParty",
+      onPress: "AirCover",
     },
-    { id: 5, name: "Browse all topics" },
+    { id: 5, name: "Browse all topics", onPress: "GuestStack" },
   ],
   2: [
     {
@@ -284,3 +283,72 @@ export const Content = {
     { id: 5, name: "Browse all topics" },
   ],
 };
+
+export const SearchandBooking = [
+  { id: 1, name: "Search tips" },
+  { id: 2, name: "Booking places to stay" },
+  { id: 3, name: "Booking Airbnb Experiences" },
+  { id: 4, name: "Booking business travel and events" },
+  { id: 5, name: "Booking Airbnb.org stays" },
+  { id: 6, name: "Messaging" },
+];
+
+export const YourReservations = [
+  { id: 1, name: "Reservation status" },
+  { id: 2, name: "Changes" },
+  { id: 3, name: "Cancellations" },
+  { id: 4, name: "Checking in" },
+  { id: 5, name: "Preparing for an Airbnb Experience" },
+  { id: 6, name: "Troubleshooting" },
+];
+
+export const Payments = [
+  { id: 1, name: "Paying for a reservation" },
+  { id: 2, name: "Refunds" },
+  { id: 3, name: "Pricing and fees" },
+  { id: 4, name: "Coupons, credits, and gift cards" },
+  { id: 5, name: "Invoices and receipts" },
+  { id: 6, name: "Taxes" },
+];
+
+export const YourAccount = [
+  { id: 1, name: "Creating an account" },
+  { id: 2, name: "Managing your account" },
+  { id: 3, name: "ID and verification" },
+  { id: 4, name: "Account security" },
+  { id: 5, name: "Reviews" },
+];
+
+export const SafetynAccessibility = [
+  { id: 1, name: "Safety concerns" },
+  { id: 2, name: "Safety tips and guidelines" },
+  { id: 3, name: "Reporting issues" },
+  { id: 4, name: "Government travel restrictions and advisories" },
+];
+
+export const AboutAirbnb = [
+  { id: 1, name: "Getting started" },
+  { id: 2, name: "How Airbnb works" },
+  { id: 3, name: "Our community policies" },
+  { id: 4, name: "Partnerships" },
+];
+
+export const CommunityPolicyExpectations = [
+  { id: 1, name: "Safety" },
+  { id: 2, name: "Privacy" },
+  { id: 3, name: "Anti-discrimination and accessibility" },
+  { id: 4, name: "Account authenticity" },
+  { id: 5, name: "Content and reviews" },
+  { id: 6, name: "Community expectations" },
+  { id: 7, name: "Cancellations and refunds" },
+  { id: 8, name: "Payments and payouts" },
+  { id: 9, name: "Hosting stays" },
+  { id: 10, name: "Hosting Experiences" },
+];
+
+export const SafetyTipsnGuidelines = [
+  { id: 1, name: "General safety tips" },
+  { id: 2, name: "For guests on stays" },
+  { id: 3, name: "For gursts on experiences" },
+  { id: 4, name: "For hosts" },
+];

@@ -1,4 +1,11 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import { HEIGHT } from "../../utils/Constants";
@@ -47,72 +54,61 @@ const SettingsPage = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Pressable
-        onPress={() => navigation.goBack()}
-        style={{ top: HEIGHT * 0.04 }}
-      >
-        <Ionicons name={"md-chevron-back-sharp"} size={22} />
-      </Pressable>
-      <View style={{ marginTop: HEIGHT * 0.08 }}>
-        <Text style={{ fontWeight: "bold", fontSize: 24 }}>Settings</Text>
-        <View style={{ marginTop: 40 }}>
-          <FlatList
-            data={SettingsContent}
-            renderItem={({ item }) => (
-              <Pressable
+    <ScrollView style={styles.container}>
+      <Text style={{ fontWeight: "bold", fontSize: 24 }}>Settings</Text>
+      <View style={{ marginTop: 40 }}>
+        <FlatList
+          data={SettingsContent}
+          renderItem={({ item }) => (
+            <Pressable
+              style={{
+                borderBottomColor: "#E4DCCF",
+                borderBottomWidth: 1,
+                paddingVertical: 10,
+              }}
+              onPress={item.id == 1 ? () => setIsVisible(!isVisible) : () => {}}
+            >
+              <View
                 style={{
-                  borderBottomColor: "#E4DCCF",
-                  borderBottomWidth: 1,
-                  paddingVertical: 10,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginVertical: 10,
                 }}
-                onPress={
-                  item.id == 1 ? () => setIsVisible(!isVisible) : () => {}
-                }
               >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginVertical: 10,
-                  }}
-                >
-                  <Text style={{ fontSize: 18, fontWeight: 300 }}>
-                    {item.name}
-                  </Text>
-                  <View>
-                    {item.text ? (
-                      <Text
-                        style={{ color: "teal", fontSize: 18, fontWeight: 300 }}
-                      >
-                        {selectedCurency}
-                      </Text>
-                    ) : (
-                      <View>{item.extra}</View>
-                    )}
-                  </View>
-                </View>
-                {item.sub && (
-                  <View style={{ width: "80%" }}>
-                    <Text style={{ fontWeight: 200 }}>
-                      Automatically translate descriptions and reviews to
-                      English
+                <Text style={{ fontSize: 18, fontWeight: 300 }}>
+                  {item.name}
+                </Text>
+                <View>
+                  {item.text ? (
+                    <Text
+                      style={{ color: "teal", fontSize: 18, fontWeight: 300 }}
+                    >
+                      {selectedCurency}
                     </Text>
-                  </View>
-                )}
-              </Pressable>
-            )}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
+                  ) : (
+                    <View>{item.extra}</View>
+                  )}
+                </View>
+              </View>
+              {item.sub && (
+                <View style={{ width: "80%" }}>
+                  <Text style={{ fontWeight: 200 }}>
+                    Automatically translate descriptions and reviews to English
+                  </Text>
+                </View>
+              )}
+            </Pressable>
+          )}
+          keyExtractor={(item) => item.id}
+        />
       </View>
       <CurrencyModal
         isVisible={isVisible}
         setIsVisible={setIsVisible}
         setSelectedCurency={setSelectedCurency}
       />
-    </View>
+    </ScrollView>
   );
 };
 

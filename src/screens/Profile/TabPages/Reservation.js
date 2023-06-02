@@ -2,13 +2,15 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import PageHeader from "../../../components/pageHeader/PageHeader";
 
-const GettingStarted = () => {
+const Reservation = () => {
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: 50, padding: 24 }}>
+    <ScrollView
+      contentContainerStyle={{ paddingBottom: 50, padding: 24 }}
+      showsVerticalScrollIndicator={false}
+    >
       <PageHeader
-        wrapped
         smallHeader={"Guide"}
-        bigHeader={"Getting started with Airbnb"}
+        bigHeader={"Help with a reservation"}
         // pic={"../../../../assets/pushdoor.jpeg"}
       />
       <View
@@ -26,7 +28,7 @@ const GettingStarted = () => {
           labore dolore velit. Fugiat laboris consectetur dolor velit.
         </Text>
         <Text style={{ marginTop: 40, fontSize: 24, fontWeight: 500 }}>
-          The Airbnb community
+          Changing or canceling plans
         </Text>
         <Text style={styles.section}>
           Fugiat Lorem duis non nostrud voluptate culpa ex Lorem aliqua commodo.
@@ -38,41 +40,8 @@ const GettingStarted = () => {
         </Text>
       </View>
       <View style={styles.section}>
-        <Text style={styles.linkText}>Host Reliability Standards</Text>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.linkText}>Guest Reliability Standards</Text>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.
-        </Text>
-      </View>
-      <View style={styles.section}>
         <Pressable>
-          <Text style={styles.sectionText}>Getting set up</Text>
-        </Pressable>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 14 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.Elit enim commodo fugiat esse anim cupidatat
-          amet excepteur ipsum mollit qui.
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Pressable>
-          <Text style={styles.linkText}>Create an account</Text>
-        </Pressable>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Pressable>
-          <Text style={styles.linkText}>How to submit your ID</Text>
+          <Text style={styles.linkText}>Finding your reservation info</Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -82,7 +51,7 @@ const GettingStarted = () => {
       <View style={styles.section}>
         <Pressable>
           <Text style={styles.linkText}>
-            Booking a trip: What to do if you're new
+            Canceling your reservation for a stay
           </Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
@@ -92,17 +61,9 @@ const GettingStarted = () => {
       </View>
       <View style={styles.section}>
         <Pressable>
-          <Text style={styles.sectionText}>Hosting basics</Text>
-        </Pressable>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 14 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.Elit enim commodo fugiat esse anim cupidatat
-          amet excepteur ipsum mollit qui.
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Pressable>
-          <Text style={styles.linkText}>All the ways to host on Airbnb</Text>
+          <Text style={styles.linkText}>
+            Changing your reservation for a stay
+          </Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -111,7 +72,58 @@ const GettingStarted = () => {
       </View>
       <View style={styles.section}>
         <Pressable>
-          <Text style={styles.linkText}>Create a unique Airbnb Experience</Text>
+          <Text style={styles.linkText}>
+            Cancel or reschedule an Airbnb Experience
+          </Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>
+            Canceling a trip due to extenuating
+          </Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.sectionText}>Paying on Airbnb</Text>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 14 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.Elit enim commodo fugiat esse anim cupidatat
+          amet excepteur ipsum mollit qui. {"\n"}Fugiat Lorem id magna enim
+          commodo do esse exercitation anim voluptate ullamco ipsum ullamco.Elit
+          enim commodo fugiat esse anim cupidatat amet excepteur ipsum mollit
+          qui.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>Paying methods available</Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>When you'll pay for a reservation</Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>Refunds for cancellations</Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -128,7 +140,7 @@ const GettingStarted = () => {
           Related articles
         </Text>
         <Pressable>
-          <Text style={styles.linkText}>Create an account</Text>
+          <Text style={styles.linkText}>How booking and reservations work</Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -137,7 +149,7 @@ const GettingStarted = () => {
       </View>
       <View style={styles.section}>
         <Pressable>
-          <Text style={styles.linkText}>Paying for your trip</Text>
+          <Text style={styles.linkText}>Finding your reservation</Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -159,7 +171,7 @@ const GettingStarted = () => {
   );
 };
 
-export default GettingStarted;
+export default Reservation;
 
 const styles = StyleSheet.create({
   imgContainer: {

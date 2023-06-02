@@ -34,7 +34,7 @@ const Content = [
     id: 3,
     icon: <AntDesign name="questioncircleo" size={24} color="black" />,
     name: "Get help",
-    onPress: "Help",
+    onPress: "HelpStack",
   },
   {
     id: 4,

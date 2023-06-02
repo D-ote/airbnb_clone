@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { HEIGHT } from "../../utils/Constants";
 import ToggleBtn from "../../components/toggleBtn/ToggleBtn";
@@ -22,35 +22,46 @@ const ThirdPartyList = [
 ];
 
 const FunctionalList = [
-  { id: 1, name: "Turn all off" },
-  { id: 2, name: "Facebook Functionalities" },
-  { id: 3, name: "MLabs" },
+  { id: 1, name: "Turn all off", btn: <ToggleBtn />, onPress: "turnall" },
+  {
+    id: 2,
+    name: "Facebook Functionalities",
+    btn: <ToggleBtn />,
+    onPress: "fb",
+  },
+  { id: 3, name: "MLabs", btn: <ToggleBtn />, onPress: "ML" },
 ];
 
 const ThirdParty = ({ navigation }) => {
+  const [turnAll, setTurnAll] = useState(false);
+  const [facebook, setFacebook] = useState(false);
+  const [mlabs, setMlabs] = useState(false);
+  // const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
+  const toggleAll = () => {
+    setTurnAll((prevState) => !prevState);
+  };
+
+  const toggleFacebook = () => {
+    setFacebook((prevState) => !prevState);
+  };
+
+  const toggleMLabs = () => {
+    setMlabs((prevState) => !prevState);
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.headerStyle}>
-        <Pressable onPress={() => navigation.goBack()}>
-          <Ionicons name={"md-chevron-back-sharp"} size={22} />
-        </Pressable>
-        <Text
-          style={{ fontWeight: "bold", textAlign: "center", marginLeft: 100 }}
-        >
-          Third-party tools
-        </Text>
-      </View>
+    <View style={StyleSheet.absoluteFill}>
       <ScrollView
-        style={{ marginTop: HEIGHT * 0.08 }}
         contentContainerStyle={{ paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
       >
         <Text style={{ padding: 16, lineHeight: 20 }}>
           Thank you for using Airbnb. The information that's shared with us
-          helps us to provide a great experience for you. Out{" "}
+          helps us to provide a great experience for you. Out
           <Text style={{ fontWeight: 500, textDecorationLine: "underline" }}>
             Privacy Policy
-          </Text>{" "}
+          </Text>
           describes how we collect, use, process, and disclose your personal
           information.
         </Text>
@@ -136,10 +147,12 @@ const ThirdParty = ({ navigation }) => {
         </View>
       </ScrollView>
 
-      <View style={styles.buttonBackground}>
-        <View style={styles.lineShadow}>
-          <Button title="Save" color={"#fff"} />
-        </View>
+      <View style={styles.btnContainer}>
+        <Pressable style={styles.lineShadow}>
+          <Text style={{ color: "#fff", textAlign: "center", fontWeight: 500 }}>
+            Save
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -148,7 +161,6 @@ const ThirdParty = ({ navigation }) => {
 export default ThirdParty;
 
 const styles = StyleSheet.create({
-  // container: { flex: 1 },
   headerStyle: {
     flexDirection: "row",
     alignItems: "center",
@@ -162,10 +174,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#212A3E",
     position: "absolute",
     bottom: 0,
-    width: "80%",
-    padding: 4,
+    width: "100%",
+    padding: 14,
     borderRadius: 8,
     alignSelf: "center",
+    marginBottom: 20,
   },
-  buttonBackground: {},
+  btnContainer: {
+    padding: 40,
+    backgroundColor: "#fff",
+    width: "100%",
+    borderTopColor: "#E4DCCF",
+    borderTopWidth: 0.2,
+  },
 });

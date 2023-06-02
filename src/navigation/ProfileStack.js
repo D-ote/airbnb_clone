@@ -8,6 +8,7 @@ import SettingsPage from "../screens/Profile/SettingsPage";
 import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import HelpStack from "./HelpStack";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,7 @@ const ProfileStack = ({ route, navigation }) => {
     if (
       routeName === "Settings" ||
       routeName === "Accessibility" ||
-      routeName === "Help" ||
+      routeName === "HelpStack" ||
       routeName === "ThirdParty"
     ) {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
@@ -26,11 +27,22 @@ const ProfileStack = ({ route, navigation }) => {
     }
   }, [navigation, route]);
 
+  useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    if (
+      routeName === "Settings" ||
+      routeName === "Accessibility" ||
+      // routeName === "HelpStack" ||
+      routeName === "ThirdParty"
+    ) {
+      navigation.setOptions({ screenOptions: { headerShown: true } });
+    } else {
+      navigation.setOptions({ screenOptions: { headerShown: false } });
+    }
+  }, [navigation, route]);
+
   return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName="ProfileIndex"
-    >
+    <Stack.Navigator initialRouteName="ProfileIndex">
       <Stack.Screen
         name="ProfileIndex"
         component={ProfileIndex}
@@ -44,16 +56,17 @@ const ProfileStack = ({ route, navigation }) => {
             color: "green",
           },
           headerShadowVisible: false,
+          headerShown: false,
         })}
       />
       <Stack.Screen
         name="Settings"
         component={SettingsPage}
         options={({ navigation }) => ({
-          title: "Login",
+          title: "",
           headerStyle: {
             shadowColor: "transparent",
-            backgroundColor: "#ffffff",
+            backgroundColor: "#f8f8f8",
           },
           headerBackTitleStyle: {
             color: "green",
@@ -61,7 +74,7 @@ const ProfileStack = ({ route, navigation }) => {
           headerShadowVisible: false,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>
-              <Ionicons name={"md-chevron-back-sharp"} size={30} />
+              <Ionicons name={"md-chevron-back-sharp"} size={24} />
             </Pressable>
           ),
         })}
@@ -70,45 +83,61 @@ const ProfileStack = ({ route, navigation }) => {
         name="Accessibility"
         component={Accessibility}
         options={({ navigation }) => ({
-          title: "Login",
+          title: "",
           headerStyle: {
             shadowColor: "transparent",
-            backgroundColor: "#ffffff",
+            backgroundColor: "#f8f8f8",
           },
           headerBackTitleStyle: {
             color: "green",
           },
           headerShadowVisible: false,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons name={"md-chevron-back-sharp"} size={24} />
+            </Pressable>
+          ),
         })}
       />
       <Stack.Screen
-        name="Help"
-        component={Help}
+        name="HelpStack"
+        component={HelpStack}
         options={({ navigation }) => ({
-          title: "Login",
+          title: "",
           headerStyle: {
             shadowColor: "transparent",
-            backgroundColor: "#ffffff",
+            backgroundColor: "#f8f8f8",
           },
+          headerShown: false,
           headerBackTitleStyle: {
             color: "green",
           },
           headerShadowVisible: false,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons name={"md-chevron-back-sharp"} size={24} />
+            </Pressable>
+          ),
         })}
       />
       <Stack.Screen
         name="ThirdParty"
         component={ThirdParty}
         options={({ navigation }) => ({
-          title: "Login",
+          title: "Third-party tools",
           headerStyle: {
             shadowColor: "transparent",
-            backgroundColor: "#ffffff",
+            backgroundColor: "#f8f8f8",
           },
           headerBackTitleStyle: {
             color: "green",
           },
           headerShadowVisible: false,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons name={"md-chevron-back-sharp"} size={24} />
+            </Pressable>
+          ),
         })}
       />
     </Stack.Navigator>

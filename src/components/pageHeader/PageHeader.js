@@ -12,10 +12,7 @@ const PageHeader = ({ smallHeader, bigHeader, pic, wrapped }) => {
         </Text>
       </View>
       <View style={styles.img}>
-        <Image
-          source={require("../../../assets/pushdoor.jpeg")}
-          style={{ width: "100%", height: "100%" }}
-        />
+        <Image source={pic} style={{ width: "100%", height: "100%" }} />
       </View>
     </>
   );

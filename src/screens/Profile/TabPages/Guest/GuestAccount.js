@@ -1,8 +1,8 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import PageHeader from "../../../components/pageHeader/PageHeader";
+import PageHeader from "../../../../components/pageHeader/PageHeader";
 
-const Account = () => {
+const GuestAccount = () => {
   return (
     <ScrollView
       contentContainerStyle={{ paddingBottom: 50, padding: 24 }}
@@ -11,7 +11,7 @@ const Account = () => {
       <PageHeader
         smallHeader={"Guide"}
         bigHeader={"Accessing your account"}
-        // pic={"../../../../assets/pushdoor.jpeg"}
+        pic={require("../../../../../assets/airbnb.png")}
       />
       <View
         style={{
@@ -148,7 +148,7 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default GuestAccount;
 
 const styles = StyleSheet.create({
   imgContainer: {

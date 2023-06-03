@@ -35,7 +35,7 @@ const TopTabs = ({ navigation }) => {
                   { backgroundColor: pressed ? "#E8E8E8" : "#f0f0f0" },
                   styles.content,
                 ]}
-                onPress={() => navigation.navigate(item.onPress)}
+                onPress={() => item.onPress()}
               >
                 <View style={styles.first}>
                   {item.icon}

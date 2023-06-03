@@ -1,9 +1,8 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import PageHeader from "../../../components/pageHeader/PageHeader";
-import { Foundation } from "@expo/vector-icons";
+import PageHeader from "../../../../components/pageHeader/PageHeader";
 
-const AirCover = () => {
+const Reservation = () => {
   return (
     <ScrollView
       contentContainerStyle={{ paddingBottom: 50, padding: 24 }}
@@ -11,7 +10,7 @@ const AirCover = () => {
     >
       <PageHeader
         smallHeader={"Guide"}
-        bigHeader={"Getting protected through AirCover"}
+        bigHeader={"Help with a reservation"}
         // pic={"../../../../assets/pushdoor.jpeg"}
       />
       <View
@@ -28,49 +27,21 @@ const AirCover = () => {
           sunt adipisicing qui qui nisi incididunt. Pariatur ex commodo laboris
           labore dolore velit. Fugiat laboris consectetur dolor velit.
         </Text>
-        <View
-          style={{
-            borderRadius: 8,
-            borderWidth: 1,
-            borderColor: "#E4DCCF",
-            padding: 12,
-            flexDirection: "row",
-            // alignItems: "center",
-            marginVertical: 20,
-          }}
-        >
-          <Foundation
-            name="page-filled"
-            size={24}
-            color="#957777"
-            style={{ marginRight: 8 }}
-          />
-          <Text>
-            If you're a Host, learn more about
-            <Text style={{ fontWeight: 500, textDecorationLine: "underline" }}>
-              AirCover for Hosts
-            </Text>
-            and
-            <Text style={{ fontWeight: 500, textDecorationLine: "underline" }}>
-              recent improvements
-            </Text>
-            we've made.
-          </Text>
-        </View>
-        <Text style={{ fontWeight: 600, fontSize: 24 }}>
-          Booking Protection Guarantee
+        <Text style={{ marginTop: 40, fontSize: 24, fontWeight: 500 }}>
+          Changing or canceling plans
         </Text>
-        <Text style={{ marginTop: 20 }}>
-          In the unlikely event a Host needs to cancel your booking within 30
-          days of check-in, we'll find you a similar or better home, or we'll
-          refund you.
+        <Text style={styles.section}>
+          Fugiat Lorem duis non nostrud voluptate culpa ex Lorem aliqua commodo.
+          Id in irure incididunt non ex. Lorem enim nisi dolore enim consequat
+          veniam. Anim Lorem excepteur commodo irure labore reprehenderit id
+          pariatur consequat minim enim cillum. Reprehenderit ipsum enim cillum
+          ex irure nulla aute cupidatat nisi ex magna sint. Id id sunt enim esse
+          in tempor laborum mollit ipsum.
         </Text>
       </View>
       <View style={styles.section}>
         <Pressable>
-          <Text style={styles.linkText}>
-            If you can't get in touch with your Host
-          </Text>
+          <Text style={styles.linkText}>Finding your reservation info</Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -78,19 +49,9 @@ const AirCover = () => {
         </Text>
       </View>
       <View style={styles.section}>
-        <Text style={styles.sectionText}>Get-What-You-Booked Guarantee</Text>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 14 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.Elit enim commodo fugiat esse anim cupidatat
-          amet excepteur ipsum mollit qui. Fugiat Lorem id magna enim commodo do
-          esse exercitation anim voluptate ullamco ipsum ullamco.Elit enim
-          commodo fugiat esse anim cupidatat amet excepteur ipsum mollit qui.
-        </Text>
-      </View>
-      <View style={styles.section}>
         <Pressable>
           <Text style={styles.linkText}>
-            What to do if the place you're staying in isn't clean at check-in
+            Canceling your reservation for a stay
           </Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
@@ -101,7 +62,7 @@ const AirCover = () => {
       <View style={styles.section}>
         <Pressable>
           <Text style={styles.linkText}>
-            If something goes wrong during your stay
+            Changing your reservation for a stay
           </Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
@@ -110,18 +71,10 @@ const AirCover = () => {
         </Text>
       </View>
       <View style={styles.section}>
-        <Text style={styles.sectionText}>24-hour Safety Line</Text>
-        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 14 }}>
-          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
-          ullamco ipsum ullamco.Elit enim commodo fugiat esse anim cupidatat
-          amet excepteur ipsum mollit qui. Fugiat Lorem id magna enim commodo do
-          esse exercitation anim voluptate ullamco ipsum ullamco.Elit enim
-          commodo fugiat esse anim cupidatat amet excepteur ipsum mollit qui.
-        </Text>
-      </View>
-      <View style={styles.section}>
         <Pressable>
-          <Text style={styles.linkText}>Get help or contact Airbnb</Text>
+          <Text style={styles.linkText}>
+            Cancel or reschedule an Airbnb Experience
+          </Text>
         </Pressable>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
@@ -129,27 +82,52 @@ const AirCover = () => {
         </Text>
       </View>
       <View style={styles.section}>
-        <Text style={styles.sectionText}>AirCover and your protection</Text>
+        <Pressable>
+          <Text style={styles.linkText}>
+            Canceling a trip due to extenuating
+          </Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.sectionText}>Paying on Airbnb</Text>
         <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 14 }}>
           Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
           ullamco ipsum ullamco.Elit enim commodo fugiat esse anim cupidatat
           amet excepteur ipsum mollit qui. {"\n"}Fugiat Lorem id magna enim
           commodo do esse exercitation anim voluptate ullamco ipsum ullamco.Elit
           enim commodo fugiat esse anim cupidatat amet excepteur ipsum mollit
-          qui. Fugiat Lorem id magna enim commodo do esse exercitation anim
-          voluptate ullamco ipsum ullamco.Elit enim commodo fugiat esse anim
-          cupidatat amet excepteur ipsum mollit qui.
+          qui.
         </Text>
-        <Text>
-          Learn more about
-          <Text style={{ fontWeight: 500, textDecorationLine: "underline" }}>
-            what is and isn't protected by AirCover
-          </Text>
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>Paying methods available</Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
         </Text>
-        <Text>
-          Laboris incididunt adipisicing sunt dolore excepteur dolor. Deserunt
-          officia aliquip tempor sunt officia culpa aliqua. Id fugiat consequat
-          proident deserunt cupidatat. Aute anim quis occaecat in officia.
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>When you'll pay for a reservation</Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Pressable>
+          <Text style={styles.linkText}>Refunds for cancellations</Text>
+        </Pressable>
+        <Text style={{ lineHeight: 18, letterSpacing: 1, marginTop: 4 }}>
+          Fugiat Lorem id magna enim commodo do esse exercitation anim voluptate
+          ullamco ipsum ullamco.
         </Text>
       </View>
       <View style={styles.question}>
@@ -193,7 +171,7 @@ const AirCover = () => {
   );
 };
 
-export default AirCover;
+export default Reservation;
 
 const styles = StyleSheet.create({
   imgContainer: {

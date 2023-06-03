@@ -8,6 +8,7 @@ import {
   MaterialCommunityIcons,
   SimpleLineIcons,
 } from "@expo/vector-icons";
+import { navigate } from "../utils/NavigationRef";
 
 export const CurrencyList = [
   { id: 1, currency: "Australian dollar", short: "AUS", symbol: "$" },
@@ -68,7 +69,16 @@ export const Content = {
         />
       ),
       name: "Getting started with Airbnb",
-      onPress: "GettingStarted",
+      onPress: () =>
+        navigate("ProfileStack", {
+          screen: "HelpStack",
+          params: {
+            screen: "GuestStack",
+            params: {
+              screen: "GettingStartedGuest",
+            },
+          },
+        }),
     },
     {
       id: 2,
@@ -81,7 +91,16 @@ export const Content = {
         />
       ),
       name: "Accessing your account",
-      onPress: "Account",
+      onPress: () =>
+        navigate("ProfileStack", {
+          screen: "HelpStack",
+          params: {
+            screen: "GuestStack",
+            params: {
+              screen: "GuestAccount",
+            },
+          },
+        }),
     },
     {
       id: 3,
@@ -94,7 +113,16 @@ export const Content = {
         />
       ),
       name: "Help with a reservation",
-      onPress: "Reservation",
+      onPress: () =>
+        navigate("ProfileStack", {
+          screen: "HelpStack",
+          params: {
+            screen: "GuestStack",
+            params: {
+              screen: "Reservation",
+            },
+          },
+        }),
     },
     {
       id: 4,
@@ -107,9 +135,31 @@ export const Content = {
         />
       ),
       name: "Getting started through AirCover",
-      onPress: "AirCover",
+      onPress: () =>
+        navigate("ProfileStack", {
+          screen: "HelpStack",
+          params: {
+            screen: "GuestStack",
+            params: {
+              screen: "AirCover",
+            },
+          },
+        }),
     },
-    { id: 5, name: "Browse all topics", onPress: "GuestStack" },
+    {
+      id: 5,
+      name: "Browse all topics",
+      onPress: () =>
+        navigate("ProfileStack", {
+          screen: "HelpStack",
+          params: {
+            screen: "GuestStack",
+            params: {
+              screen: "BrowseGuestTopics",
+            },
+          },
+        }),
+    },
   ],
   2: [
     {

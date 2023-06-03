@@ -8,9 +8,9 @@ import {
   SearchandBooking,
   YourAccount,
   YourReservations,
-} from "../../../utils/Lists";
+} from "../../../../../utils/Lists";
 
-const AllTopics = () => {
+const AllTopicsGuest = () => {
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
       <View style={styles.section}>
@@ -204,7 +204,7 @@ const AllTopics = () => {
   );
 };
 
-export default AllTopics;
+export default AllTopicsGuest;
 
 const styles = StyleSheet.create({
   section: {

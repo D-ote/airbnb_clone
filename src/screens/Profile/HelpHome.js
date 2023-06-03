@@ -30,7 +30,7 @@ const ExploreList = [
   },
 ];
 
-const Help = ({ navigation }) => {
+const HelpHome = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -119,7 +119,7 @@ const Help = ({ navigation }) => {
   );
 };
 
-export default Help;
+export default HelpHome;
 
 const styles = StyleSheet.create({
   container: {

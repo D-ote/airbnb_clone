@@ -2,7 +2,6 @@ import React, { useLayoutEffect } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfileIndex from "../screens/Profile/Index";
 import Accessibility from "../screens/Profile/Accessibility";
-import Help from "../screens/Profile/Help";
 import ThirdParty from "../screens/Profile/ThirdParty";
 import SettingsPage from "../screens/Profile/SettingsPage";
 import { Pressable } from "react-native";

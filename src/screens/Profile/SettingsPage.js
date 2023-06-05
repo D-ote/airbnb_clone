@@ -1,5 +1,6 @@
 import {
   FlatList,
+  Linking,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -16,41 +17,47 @@ import CurrencyModal from "../../components/currency/CurrencyModal";
 const SettingsPage = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCurency, setSelectedCurency] = useState("GBP (£)");
-  const renderItem = ({ item }) => {
-    <View
-      style={{
-        borderBottomColor: "#E4DCCF",
-        borderBottomWidth: 1,
-        paddingBottom: 18,
-      }}
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: 10,
-        }}
-      >
-        <Text style={{ fontSize: 18, fontWeight: 300 }}>{item.name}</Text>
-        <View>
-          {item.text ? (
-            <Text style={{ color: "teal", fontSize: 18, fontWeight: 300 }}>
-              {item.extra}
-            </Text>
-          ) : (
-            <ToggleBtn />
-          )}
-        </View>
-      </View>
-      {item.sub && (
-        <View style={{ width: "80%" }}>
-          <Text style={{ fontWeight: 200 }}>
-            Automatically translate descriptions and reviews to English
-          </Text>
-        </View>
-      )}
-    </View>;
+  // const renderItem = ({ item }) => {
+  //   <View
+  //     style={{
+  //       borderBottomColor: "#E4DCCF",
+  //       borderBottomWidth: 1,
+  //       paddingBottom: 18,
+  //     }}
+  //   >
+  //     <View
+  //       style={{
+  //         flexDirection: "row",
+  //         alignItems: "center",
+  //         justifyContent: "space-between",
+  //         marginBottom: 10,
+  //       }}
+  //     >
+  //       <Text style={{ fontSize: 18, fontWeight: 300 }}>{item.name}</Text>
+  //       <View>
+  //         {item.text ? (
+  //           <Text style={{ color: "teal", fontSize: 18, fontWeight: 300 }}>
+  //             {item.extra}
+  //           </Text>
+  //         ) : (
+  //           <ToggleBtn />
+  //         )}
+  //       </View>
+  //     </View>
+  //     {item.sub && (
+  //       <View style={{ width: "80%" }}>
+  //         <Text style={{ fontWeight: 200 }}>
+  //           Automatically translate descriptions and reviews to English
+  //         </Text>
+  //       </View>
+  //     )}
+  //   </View>;
+  // };
+
+  const openLink = (url) => {
+    Linking.canOpenURL(url).then((supported) => {
+      supported && Linking.openURL(url);
+    });
   };
 
   return (
@@ -87,7 +94,9 @@ const SettingsPage = ({ navigation }) => {
                       {selectedCurency}
                     </Text>
                   ) : (
-                    <View>{item.extra}</View>
+                    <Pressable onPress={() => openLink(item?.onPress)}>
+                      {item.extra}
+                    </Pressable>
                   )}
                 </View>
               </View>

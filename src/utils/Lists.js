@@ -36,11 +36,13 @@ export const SettingsContent = [
     id: 3,
     name: "Terms of Service",
     extra: <Entypo name="chevron-small-right" size={24} color="black" />,
+    onPress: "https://www.airbnb.co.uk/help/article/2908",
   },
   {
     id: 4,
     name: "Privacy policy",
     extra: <Entypo name="chevron-small-right" size={24} color="black" />,
+    onPress: "https://www.airbnb.co.uk/help/article/2908",
   },
   { id: 5, name: "Version 23.20 (203419)" },
 ];

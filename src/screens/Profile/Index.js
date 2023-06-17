@@ -15,7 +15,6 @@ import {
   AntDesign,
   MaterialIcons,
 } from "@expo/vector-icons";
-import LoginModal from "../../components/loginModal/LoginModal";
 
 const Content = [
   {
@@ -58,12 +57,12 @@ const Index = ({ navigation }) => {
         <Button
           title="Log in"
           color={"#fff"}
-          onPress={() => setIsVisible(!isVisible)}
+          onPress={() => navigation.navigate("LoginStack")}
         />
       </View>
       <View marginTop={24} flexDirection="row">
         <Text>Don't have an account?</Text>
-        <Pressable onPress={() => setIsVisible(!isVisible)}>
+        <Pressable onPress={() => navigation.navigate("LoginStack")}>
           <Text style={styles.textStyle}> Sign up</Text>
         </Pressable>
       </View>
@@ -101,10 +100,6 @@ const Index = ({ navigation }) => {
           keyExtractor={(item) => item.id}
         />
       </View>
-      <LoginModal
-        isVisible={isVisible}
-        setIsVisible={() => setIsVisible(!isVisible)}
-      />
     </View>
   );
 };

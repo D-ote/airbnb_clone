@@ -1,23 +1,16 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import FirstScreen from "../../components/firstScreen/FirstScreen";
 import { HEIGHT } from "../../utils/Constants";
-import LoginModal from "../../components/loginModal/LoginModal";
 
-const Trips = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
+const Trips = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <FirstScreen
         header={"Trips"}
         subHeader={"No trips yet"}
         body={"When you're ready to plan your next trip, we're here to help."}
-        onPress={() => setIsVisible(!isVisible)}
-      />
-      <LoginModal
-        isVisible={isVisible}
-        setIsVisible={() => setIsVisible(!isVisible)}
+        onPress={() => navigation.navigate("LoginStack")}
       />
     </View>
   );

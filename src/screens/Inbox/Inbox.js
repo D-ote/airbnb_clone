@@ -1,23 +1,17 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import FirstScreen from "../../components/firstScreen/FirstScreen";
 import { HEIGHT } from "../../utils/Constants";
 import LoginModal from "../../components/loginModal/LoginModal";
 
-const Inbox = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
+const Inbox = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <FirstScreen
         header={"Inbox"}
         subHeader={"Log in to see messages"}
         body={"Once you log in, you'll find messages from hosts here."}
-        onPress={() => setIsVisible(!isVisible)}
-      />
-      <LoginModal
-        isVisible={isVisible}
-        setIsVisible={() => setIsVisible(!isVisible)}
+        onPress={() => navigation.navigate("LoginStack")}
       />
     </View>
   );

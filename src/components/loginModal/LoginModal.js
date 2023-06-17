@@ -17,6 +17,7 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import CustomButton from "../button/Button";
+import CountryModal from "../countryModal/CountryModal";
 
 const Content = [
   {
@@ -47,96 +48,102 @@ const Content = [
 
 const LoginModal = ({ isVisible, setIsVisible }) => {
   const [number, onChangeNumber] = useState("");
+  const [countryCodeModal, setCountryCodeModal] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState({});
 
   return (
-    <Modal animationType="slide" transparent={true} visible={isVisible}>
-      <View style={styles.loginModal}>
-        <View style={styles.modalHeader}>
-          <Pressable onPress={setIsVisible}>
-            <Ionicons name="close" size={24} color="black" />
-          </Pressable>
-          <Text style={{ fontWeight: 600, marginLeft: 100 }}>
-            Log in or Sign up
-          </Text>
-        </View>
-        <ScrollView>
-          <View style={styles.modalInfo}>
-            <View style={styles.inputField}>
-              <Pressable
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottomColor: "#B0A4A4",
-                  borderBottomWidth: 0.8,
-                  padding: 10,
-                }}
-                onPress={setIsVisible}
-              >
-                <View>
-                  <Text style={{ fontSize: 12, fontWeight: 200 }}>
-                    Country/Region
-                  </Text>
-                  <Text style={{ fontSize: 16, marginTop: 6 }}>
-                    United Kingdom (+44)
-                  </Text>
-                </View>
-                <Feather name="chevron-down" size={24} color="black" />
-              </Pressable>
-              <TextInput
-                style={styles.phoneInput}
-                onChangeText={onChangeNumber}
-                value={number}
-                placeholder="Phone number"
-                keyboardType="numeric"
-              />
-            </View>
+    <>
+      <Modal animationType="slide" transparent={true} visible={isVisible}>
+        <View style={styles.loginModal}>
+          <View style={styles.modalHeader}>
+            <Pressable onPress={setIsVisible}>
+              <Ionicons name="close" size={24} color="black" />
+            </Pressable>
+            <Text style={{ fontWeight: 600, marginLeft: 100 }}>
+              Log in or Sign up
+            </Text>
           </View>
-          <View style={{ padding: 20 }}>
-            <Text
+          <ScrollView>
+            <View style={styles.modalInfo}>
+              <View style={styles.inputField}>
+                <Pressable
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    borderBottomColor: "#B0A4A4",
+                    borderBottomWidth: 0.8,
+                    padding: 10,
+                  }}
+                  onPress={() => {
+                    setCountryCodeModal(!countryCodeModal);
+                  }}
+                >
+                  <View>
+                    <Text style={{ fontSize: 12, fontWeight: 200 }}>
+                      Country/Region
+                    </Text>
+                    <Text style={{ fontSize: 16, marginTop: 6 }}>
+                      United Kingdom (+44)
+                    </Text>
+                  </View>
+                  <Feather name="chevron-down" size={24} color="black" />
+                </Pressable>
+                <TextInput
+                  style={styles.phoneInput}
+                  onChangeText={onChangeNumber}
+                  value={number}
+                  placeholder="Phone number"
+                  keyboardType="numeric"
+                />
+              </View>
+            </View>
+            <View style={{ padding: 20 }}>
+              <Text
+                style={{
+                  fontSize: 11,
+                  fontWeight: 300,
+                  marginBottom: 20,
+                  lineHeight: 16,
+                }}
+              >
+                We'll call or text you to confirm your number. Standard message
+                and data rates apply.
+              </Text>
+              <CustomButton title={"Continue"} />
+            </View>
+            <View
               style={{
-                fontSize: 11,
-                fontWeight: 300,
-                marginBottom: 20,
-                lineHeight: 16,
+                justifyContent: "center",
+                alignItems: "center",
+                marginVertical: 14,
+                flexDirection: "row",
               }}
             >
-              We'll call or text you to confirm your number. Standard message
-              and data rates apply.
-            </Text>
-            <CustomButton title={"Continue"} />
-          </View>
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              marginVertical: 14,
-              flexDirection: "row",
-            }}
-          >
-            <View style={{ marginBottom: 8 }}>
-              <Text style={{ fontWeight: 100 }}>_____________________</Text>
+              <View style={{ marginBottom: 8 }}>
+                <Text style={{ fontWeight: 100 }}>_____________________</Text>
+              </View>
+              <Text style={{ fontWeight: 600, paddingHorizontal: 8 }}>or</Text>
+              <View style={{ marginBottom: 8 }}>
+                <Text style={{ fontWeight: 100 }}>_____________________</Text>
+              </View>
             </View>
-            <Text style={{ fontWeight: 600, paddingHorizontal: 8 }}>or</Text>
-            <View style={{ marginBottom: 8 }}>
-              <Text style={{ fontWeight: 100 }}>_____________________</Text>
+            <View style={{ padding: 20 }}>
+              <FlatList
+                data={Content}
+                renderItem={({ item }) => (
+                  <View style={styles.loginMedium}>
+                    <View style={{ marginRight: 80 }}>{item.icon}</View>
+                    <Text>{item.text}</Text>
+                  </View>
+                )}
+                keyExtractor={(item) => item.id}
+              />
             </View>
-          </View>
-          <View style={{ padding: 20 }}>
-            <FlatList
-              data={Content}
-              renderItem={({ item }) => (
-                <View style={styles.loginMedium}>
-                  <View style={{ marginRight: 80 }}>{item.icon}</View>
-                  <Text>{item.text}</Text>
-                </View>
-              )}
-              keyExtractor={(item) => item.id}
-            />
-          </View>
-        </ScrollView>
-      </View>
-    </Modal>
+          </ScrollView>
+        </View>
+      </Modal>
+    </>
   );
 };
 

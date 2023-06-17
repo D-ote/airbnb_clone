@@ -1,55 +1,43 @@
-import {
-  FlatList,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import React from "react";
+import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { CountryList } from "../../utils/CountryList";
 
-const CountryModal = () => {
+const CountryModal = ({ navigation }) => {
+  const [selected, setSelected] = useState(0);
+
+  const pickCountry = (item) => {
+    setSelected(item?.id);
+    setTimeout(() => navigation.goBack(), 500);
+  };
+
   return (
-    <Modal animationType="slide" transparent={false} visible={isVisible}>
-      <View style={styles.currencyModal}>
-        <View style={styles.modalHeader}>
-          <Pressable onPress={setIsVisible}>
-            <Ionicons name="close" size={24} color="black" />
+    <View style={{ padding: 10, flex: 1 }}>
+      <FlatList
+        data={CountryList}
+        renderItem={({ item }) => (
+          <Pressable
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              borderBottomColor: "#E4DCCF",
+              borderBottomWidth: 1,
+              paddingVertical: 14,
+            }}
+            onPress={() => pickCountry(item)}
+          >
+            <Text>{`${item.country} (${item.code})`}</Text>
+            {selected === item?.id ? (
+              <Ionicons name="radio-button-on" size={24} color="#000" />
+            ) : (
+              <Ionicons name="radio-button-off" size={24} color="#E4DCCF" />
+            )}
           </Pressable>
-          <Text style={{ fontWeight: 600, marginLeft: 100 }}>
-            Country/Region
-          </Text>
-        </View>
-      </View>
-      <View style={{ marginTop: HEIGHT * 0.12, padding: 10 }}>
-        <FlatList
-          data={CurrencyList}
-          renderItem={({ item }) => (
-            <Pressable
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                borderBottomColor: "#E4DCCF",
-                borderBottomWidth: 1,
-                paddingVertical: 14,
-              }}
-              onPress={() => pickCurrency(item)}
-            >
-              <Text>
-                {item.currency} - {item.symbol}
-              </Text>
-              {selected === item?.id ? (
-                <Ionicons name="radio-button-on" size={24} color="#000" />
-              ) : (
-                <Ionicons name="radio-button-off" size={24} color="#E4DCCF" />
-              )}
-            </Pressable>
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
-    </Modal>
+        )}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
   );
 };
 
@@ -64,7 +52,7 @@ const styles = StyleSheet.create({
     padding: 18,
   },
   currencyModal: {
-    // backgroundColor: "#f8f8f8",
+    backgroundColor: "#f8f8f8",
     height: "94%",
     width: "100%",
     borderTopRightRadius: 18,

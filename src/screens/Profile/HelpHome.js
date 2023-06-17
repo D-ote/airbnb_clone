@@ -13,7 +13,6 @@ import { Ionicons, Feather } from "@expo/vector-icons";
 import { HEIGHT } from "../../utils/Constants";
 import SearchModal from "../../components/searchModal/SearchModal";
 import TopTabs from "../../components/toptabs/TopTabs";
-import LoginModal from "../../components/loginModal/LoginModal";
 
 const ExploreList = [
   {
@@ -110,10 +109,6 @@ const HelpHome = ({ navigation }) => {
       <SearchModal
         isVisible={isVisible}
         setIsVisible={() => setIsVisible(!isVisible)}
-      />
-      <LoginModal
-        isVisible={isLoggedIn}
-        setIsVisible={() => setIsLoggedIn(!isLoggedIn)}
       />
     </View>
   );

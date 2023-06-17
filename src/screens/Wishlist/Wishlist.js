@@ -1,23 +1,16 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { HEIGHT } from "../../utils/Constants";
 import FirstScreen from "../../components/firstScreen/FirstScreen";
-import LoginModal from "../../components/loginModal/LoginModal";
 
-const Wishlist = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
+const Wishlist = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <FirstScreen
         header={"Wishlist"}
         subHeader={"Log in to view your wishlists"}
         body={"You can create, view, or edit wishlists once you've logged in."}
-        onPress={() => setIsVisible(!isVisible)}
-      />
-      <LoginModal
-        isVisible={isVisible}
-        setIsVisible={() => setIsVisible(!isVisible)}
+        onPress={() => navigation.navigate("LoginStack")}
       />
     </View>
   );
